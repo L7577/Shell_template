@@ -2,22 +2,24 @@
 
 shell脚本模板说明
 
-需要清楚在常见的系统中有两种常见的shell解释器，以ubuntu18.04为例
+需要清楚在常见的系统中有多种shell解释器，以ubuntu20.04为例
 
 ```shell
-$ ll /bin/sh
-lrwxrwxrwx 1 root root 4 4月  16  2020 /bin/sh -> dash*
-$ ll /bin/bash 
--rwxr-xr-x 1 root root 1113504 6月   7  2019 /bin/bash* 
-$ file -h /bin/sh
-/bin/sh: symbolic link to dash
-$ file  /bin/sh
-/bin/sh: symbolic link to dash
-$ file  /bin/bash 
-/bin/bash: ELF 64-bit LSB shared object, x86-64, version 1 (SYSV), dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, for GNU/Linux 3.2.0, BuildID[sha1]=12f73d7a8e226c663034529c8dd20efec22dde54, stripped
+ cat /etc/shells
+# /etc/shells: valid login shells
+/bin/sh
+/bin/bash
+/usr/bin/bash
+/bin/rbash
+/usr/bin/rbash
+/bin/dash
+/usr/bin/dash
+/usr/bin/fish
+
 ```
 
-可以使用man分别查看使用手册
+
+可以使用man分别查看使用手册,以sh和bash为例
 
 `man sh` 
 > dash — command interpreter (shell)
@@ -32,8 +34,7 @@ Bash  is  intended to be a conformant implementation of the Shell and Utilities 
 
 
 
-看起来sh 和 bash并无大不同之处，但也有一些必须了解的差别
-
+看起来sh 和 bash并无大不同之处，但在语法上有一定的差别
 
 
 `BASH_SOURCE[0]`与 `$0`
@@ -48,8 +49,6 @@ Bash  is  intended to be a conformant implementation of the Shell and Utilities 
 echo "BASH_SOURCE[0]: ${BASH_SOURCE[0]}"
 echo "\$0: $0"
 ```
-
-
 
  
 
